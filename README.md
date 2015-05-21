@@ -24,6 +24,7 @@ This is meant to be the beginning guidelines for JavaScript code at SolutionStre
 * Maintainability
   * SRP - Single responsibility principle 
   * NPM and Bower support
+  * Use lodash
   * Testing
   * Build Process
 * Modularity
