@@ -60,10 +60,6 @@ Naming
 * Constants
   * All upper
     * CONSTANT_VALUES_LIKE_THIS
-    * 
-Variables
-* Always declare with var
-  * When you fail to specify var, the variable gets placed in the global context and can potentially clobber existing values
 
 Strings
 * Use single quotes for strings
@@ -78,6 +74,11 @@ Commenting
 ```JavaScript
 var apple = new Apple(); // initing the apple - NO!
 ```
+
+##Variables
+* Always declare with var
+  * When you fail to specify var, the variable gets placed in the global context and can potentially clobber existing values
+
 
 ##Objects
 * Use the literal syntax for object creation
@@ -165,3 +166,113 @@ if (checkObject(object) && checkObjectVAlue(object) === true) {
   * This includes closures within closures
   * Also includes jQuery this, this, this
 
+##Properties
+* Use dot notation when accessing properties
+```JavaScript
+var luke = {
+  jedi: true,
+  age: 28
+};
+
+//bad
+var isJedi = luke['jedi'];
+
+//good
+var isJedi = luke.jedi;
+```
+* Use subscript notation `[]` when accessing properties with a variable
+```JavaScript
+var luke = {
+  jedi: true,
+  age: 28
+};
+
+function getProp(prop) {
+  return luke[prop];
+}
+
+var isJedi = getProp('jedi');
+```
+
+##Comparison Operators & Equality
+* Use === and !== over == and !=
+* Use shortcuts.
+```JavaScript
+//bad
+if (name !== '') {
+  //stuff
+}
+
+//good
+if (name) {
+  //stuff
+}
+
+//bad
+if (collection.length > 0) {
+  //stuff
+}
+
+//good
+if (collection.length) {
+  //stuff
+}
+```
+
+##Blocks
+* Use braces with *all* if statements
+```JavaScript
+//bad
+if (false === true) login();
+
+//good
+if (false === true) {
+  login();
+}
+```
+
+##Whitespace
+* Following JavaScript Code Style - Google Preset
+* Use tabs as spaces set to 2 spaces
+* Place 1 space before each leading brace
+```JavaScript
+//bad
+if (false === true){
+
+}
+
+//good
+if (false === true) {
+
+}
+
+//bad
+function login(){
+
+}
+
+//good
+function login() {
+
+}
+```
+* Place 1 space before the opening parenthesis in control statements (if, while, etc). Place no space before the
+argument list in function calls and declarations
+```Javascript
+//bad
+if(false === true) {
+}
+
+//good
+if (false === true) {
+}
+
+//bad
+while(false === true) {
+}
+
+//good
+while (false === true) {
+
+}
+```
