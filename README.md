@@ -22,6 +22,7 @@ This is meant to be the beginning guidelines for JavaScript code at SolutionStre
     ```
   * Avoid contractions
 * Maintainability
+  * 'use strict' 
   * SRP - Single responsibility principle 
   * NPM and Bower support
   * Use lodash
