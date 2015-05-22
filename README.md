@@ -6,6 +6,7 @@ This is meant to be the beginning guidelines for JavaScript code at SolutionStre
 * Readability
   * KISS - Keep it simple
   ```JavaScript
+  //bad
   var luhnChk = (function (arr) {
     return function (ccNum) {
         var 
@@ -40,7 +41,12 @@ This is meant to be the beginning guidelines for JavaScript code at SolutionStre
     ```
   * Avoid contractions
 * Maintainability
-  * 'use strict' 
+  * 'use strict'
+    * Without strict mode, assigning a value to an undeclared variable creates a global variable which can clobber
+    other global variables. Strict mode throws an error and does not allow values to be assigned to undeclared
+    variables.
+    * Without strict mode, a reference to a this value of null or undefined is automatically coerced to the global.
+    In strict mode, this causes an error.
   * SRP - Single responsibility principle 
   * NPM and Bower support
   * Use lodash
