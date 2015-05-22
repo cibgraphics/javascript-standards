@@ -34,7 +34,7 @@ This is meant to be the beginning guidelines for JavaScript code at SolutionStre
     angular.module('myApp', []);
     
     //good
-    var patientNAme = 'Person Name';
+    var patientName = 'Person Name';
     function processPatient() {}
     function login() {}
     angular.module('',[])
