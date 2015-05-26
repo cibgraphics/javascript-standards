@@ -4,6 +4,15 @@ This is meant to be the beginning guidelines for JavaScript code at SolutionStre
 
 ##Table of Contents
 1. [Coding Principles](#coding-principles)
+2. [Styles](#styles)
+3. [Variables](#variables)
+4. [Objects](#objects)
+5. [Arrays](#arrays)
+6. [Functions](#functions)
+7. [Properties](#properties)
+8. [Comparison Operators & Equality](#comparison-operators--equality)
+9. [Blocks](#blocks)
+10. [Whitespace](#whitespace)
 
 
 ## Coding Principles
