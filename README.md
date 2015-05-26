@@ -2,7 +2,8 @@
 
 This is meant to be the beginning guidelines for JavaScript code at SolutionStream. We are aligning ourselves closely with the styleguides produced by Google (https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) and Airbnb (https://github.com/airbnb/javascript/tree/master/es5)
 
-##<a id="table_of_contents">Table of Contents</a>
+##Table of Contents
+1. [Coding Principles](#coding-principles)
 
 
 ## Coding Principles
