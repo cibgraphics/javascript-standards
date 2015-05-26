@@ -13,6 +13,7 @@ This is meant to be the beginning guidelines for JavaScript code at SolutionStre
 8. [Comparison Operators & Equality](#comparison-operators--equality)
 9. [Blocks](#blocks)
 10. [Whitespace](#whitespace)
+11. [Method Chaining](#method-chaining)
 
 
 ## Coding Principles
@@ -117,7 +118,29 @@ var apple = new Apple(); // initing the apple - NO!
 ##Variables
 * Always declare with var
   * When you fail to specify var, the variable gets placed in the global context and can potentially clobber existing values
+* Declare one variable per var statement, it makes it easier to re-order the lines.
+```JavaScript
+//right
+var keys   = ['foo', 'bar'];
+var values = [23, 42];
 
+var object = {};
+while (keys.length) {
+  var key = keys.pop();
+  object[key] = values.pop();
+}
+
+//wrong
+var keys = ['foo', 'bar'],
+    values = [23, 42],
+    object = {},
+    key;
+
+while (keys.length) {
+  key = keys.pop();
+  object[key] = values.pop();
+}
+```
 
 ##Objects
 * Use the literal syntax for object creation
@@ -185,6 +208,22 @@ someStack.push('value');
 ```
 
 ##Functions
+* Keep your functions short. A good function fits on a slide that the people in the last row of a big room can
+comfortably read. So don't count on them having perfect vision and limit yourself to
+   ~15 lines of code per function.
+* Feel free to give your closures a name. It shows that you care about them, and will produce better stack traces,
+heap and cpu profiles.
+```JavaScript
+//right
+req.on('end', function onEnd() {
+  console.log('winning');
+});
+
+//wrong
+req.on('end', function() {
+  console.log('losing');
+});
+```
 * Ternary is fine when it serves a simple purpose
 ```JavaScript
 var valid = (object && object.value) ? true : false
@@ -257,6 +296,20 @@ if (collection.length) {
   //stuff
 }
 ```
+* Use descriptive conditions
+```JavaScript
+//right
+var isValidPassword = password.length >= 4 && /^(?=.*\d).{4,}$/.test(password);
+
+if (isValidPassword) {
+  console.log('winning');
+}
+
+//wrong
+if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
+  console.log('losing');
+}
+```
 
 ##Blocks
 * Use braces with *all* if statements
@@ -314,4 +367,42 @@ while(false === true) {
 while (false === true) {
 
 }
+```
+
+
+##Method Chaining
+* One method per line should be used if you want to chain methods
+* You should also indent these methods so it's easier to tell they are part of the same chain
+```JavaScript
+//right
+User
+  .findOne({ name: 'foo' })
+  .populate('bar')
+  .exec(function(err, user) {
+    return true;
+  });
+
+ //wrong
+ User
+ .findOne({ name: 'foo' })
+ .populate('bar')
+ .exec(function(err, user) {
+   return true;
+ });
+
+ User.findOne({ name: 'foo' })
+   .populate('bar')
+   .exec(function(err, user) {
+     return true;
+   });
+
+ User.findOne({ name: 'foo' }).populate('bar')
+ .exec(function(err, user) {
+   return true;
+ });
+
+ User.findOne({ name: 'foo' }).populate('bar')
+   .exec(function(err, user) {
+     return true;
+   });
 ```
